@@ -20,6 +20,18 @@ const projects: Project[] = [
       "User-friendly interface for easy input",
       "Real-time translation output"
     ]
+  },
+  {
+    title: "Hotel Room Booking UI",
+    description: "A modern, responsive hotel room booking interface built with Vite and React, featuring an intuitive booking form and smooth user experience.",
+    technologies: ["React", "Vite", "JavaScript", "CSS"],
+    features: [
+      "Built using Vite + React for fast performance",
+      "Interactive booking form with modal",
+      "Modern and responsive UI design",
+      "Real-time form validation",
+      "Smooth animations and transitions"
+    ]
   }
 ];
 
