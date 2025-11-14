@@ -18,13 +18,13 @@ const Contact = () => {
       icon: <Linkedin className="w-5 h-5" />,
       label: "LinkedIn",
       value: "Connect on LinkedIn",
-      href: "#" // Update with actual LinkedIn URL
+      href: "https://www.linkedin.com/in/bethi-shaleam-raju-48b412258/"
     },
     {
       icon: <Github className="w-5 h-5" />,
       label: "GitHub",
       value: "View GitHub Profile",
-      href: "#" // Update with actual GitHub URL
+      href: "https://github.com/shaleamraju"
     }
   ];
 
