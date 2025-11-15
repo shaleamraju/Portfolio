@@ -69,9 +69,8 @@ const Education = () => {
               {item.highlights && (
                 <ul className="space-y-2 ml-2">
                   {item.highlights.map((highlight, idx) => (
-                    <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{highlight}</span>
+                    <li key={idx} className="text-sm text-muted-foreground">
+                      {highlight}
                     </li>
                   ))}
                 </ul>
