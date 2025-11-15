@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-bg.jpg";
-import profileImage from "@/assets/profile.jpg";
 
 const Hero = () => {
   const handleViewProjects = () => {
@@ -27,16 +26,9 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center max-w-7xl">
         <div className="space-y-6 animate-fade-in">
-          <div className="flex items-center gap-8 flex-wrap">
-            <img 
-              src={profileImage} 
-              alt="Shaleam Raju Bethi" 
-              className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-cover rounded-full border-4 border-primary shadow-[0_0_30px_rgba(var(--primary),0.5)]"
-            />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
-              SHALEAM RAJU BETHI
-            </h1>
-          </div>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
+            SHALEAM RAJU BETHI
+          </h1>
           
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl font-medium">
             Full-Stack Developer | C, C++, Java, Python | React | Node | SQL | MongoDB
