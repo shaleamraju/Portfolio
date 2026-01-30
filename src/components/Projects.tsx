@@ -8,6 +8,7 @@ interface Project {
   technologies: string[];
   highlight: string;
   color: "cyan" | "emerald";
+  link?: string;
 }
 
 const projects: Project[] = [
@@ -17,7 +18,8 @@ const projects: Project[] = [
     icon: <Hotel className="w-8 h-8" />,
     technologies: ["MongoDB", "Express", "React", "Node.js", "JWT"],
     highlight: "MERN Stack with JWT Authentication",
-    color: "cyan"
+    color: "cyan",
+    link: "https://hotetelroombooking.onrender.com"
   },
   {
     title: "C-to-Telugu Translator",
@@ -33,7 +35,8 @@ const projects: Project[] = [
     icon: <FileText className="w-8 h-8" />,
     technologies: ["React", "Node.js", "MongoDB", "Express"],
     highlight: "Full CRUD Operations",
-    color: "cyan"
+    color: "cyan",
+    link: "https://postbloging-frontend.onrender.com"
   }
 ];
 
@@ -47,59 +50,68 @@ const Projects = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <Card 
+            <a
               key={index}
-              className={`${project.color === "cyan" ? "glass hover-glow" : "glass-emerald hover-glow-emerald"} border-0 hover-scale cursor-pointer group overflow-hidden`}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`block ${!project.link ? 'pointer-events-none' : ''}`}
             >
-              <div className={`relative h-48 flex items-center justify-center ${
-                project.color === "cyan" 
-                  ? "bg-gradient-to-br from-primary/20 to-primary/5" 
-                  : "bg-gradient-to-br from-accent/20 to-accent/5"
-              }`}>
-                <div className={`p-6 rounded-2xl ${
-                  project.color === "cyan" ? "bg-primary/20 text-primary" : "bg-accent/20 text-accent"
-                } group-hover:scale-110 transition-transform duration-300`}>
-                  {project.icon}
+              <Card 
+                className={`${project.color === "cyan" ? "glass hover-glow" : "glass-emerald hover-glow-emerald"} border-0 hover-scale cursor-pointer group overflow-hidden h-full`}
+              >
+                <div className={`relative h-48 flex items-center justify-center ${
+                  project.color === "cyan" 
+                    ? "bg-gradient-to-br from-primary/20 to-primary/5" 
+                    : "bg-gradient-to-br from-accent/20 to-accent/5"
+                }`}>
+                  <div className={`p-6 rounded-2xl ${
+                    project.color === "cyan" ? "bg-primary/20 text-primary" : "bg-accent/20 text-accent"
+                  } group-hover:scale-110 transition-transform duration-300`}>
+                    {project.icon}
+                  </div>
+                  
+                  {/* Hover overlay */}
+                  {project.link && (
+                    <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className={`flex items-center gap-2 ${project.color === "cyan" ? "text-primary" : "text-accent"}`}>
+                        <ExternalLink className="w-5 h-5" />
+                        <span className="font-medium">View Project</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className={`flex items-center gap-2 ${project.color === "cyan" ? "text-primary" : "text-accent"}`}>
-                    <ExternalLink className="w-5 h-5" />
-                    <span className="font-medium">View Project</span>
+                <CardHeader>
+                  <div className={`text-xs font-bold uppercase tracking-wider mb-2 ${
+                    project.color === "cyan" ? "text-primary" : "text-accent"
+                  }`}>
+                    {project.highlight}
                   </div>
-                </div>
-              </div>
-              
-              <CardHeader>
-                <div className={`text-xs font-bold uppercase tracking-wider mb-2 ${
-                  project.color === "cyan" ? "text-primary" : "text-accent"
-                }`}>
-                  {project.highlight}
-                </div>
-                <CardTitle className="text-xl text-foreground">{project.title}</CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        project.color === "cyan" 
-                          ? "bg-primary/20 text-primary" 
-                          : "bg-accent/20 text-accent"
-                      }`}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  <CardTitle className="text-xl text-foreground">{project.title}</CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          project.color === "cyan" 
+                            ? "bg-primary/20 text-primary" 
+                            : "bg-accent/20 text-accent"
+                        }`}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </div>
       </div>
